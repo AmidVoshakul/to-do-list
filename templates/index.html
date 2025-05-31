@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>To-Do на HTMX + Mojo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <script src="https://unpkg.com/htmx.org"></script>
+</head>
+
+<body>
+    <h1>Список задач</h1>
+
+    <form hx-post="/add" hx-target="#tasks">
+        <button hx-get="/filter?status=all" hx-target="#tasks">Все</button>
+        <button hx-get="/filter?status=active" hx-target="#tasks">Активные</button>
+        <button hx-get="/filter?status=completed" hx-target="#tasks">Выполненные</button>
+        <input type="text" name="text" placeholder="Новая задача">
+        <button type="submit">Добавить</button>
+
+    </form>
+
+    <div id="tasks">
+        {% include "tasks.html" %}
+    </div>
+</body>
+
+</html>
