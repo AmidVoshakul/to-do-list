@@ -1,0 +1,12 @@
+[workspace]
+authors = ["Amid Voshakul <dimston.asg@gmail.com>"]
+channels = ["https://conda.modular.com/max-nightly", "conda-forge"]
+name = "to-do-list"
+platforms = ["linux-64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+modular = ">=25.4.0.dev2025053005,<26"
+flask = ">=3.1.1,<4"
